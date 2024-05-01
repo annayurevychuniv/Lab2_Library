@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using APIWebApp.Models;
 using APIWebApp.Controllers;
-using APIWebApp.Models.DTO;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics.Metrics;
 
@@ -23,7 +22,7 @@ namespace Library.Tests
             using var context = CreateContext();
             AuthorsController authorsController = new AuthorsController(context);
 
-            AuthorDtoWrite author = new AuthorDtoWrite()
+            Author author = new Author()
             {
                 fullName = "fullName",
                 country = "country",
@@ -39,7 +38,7 @@ namespace Library.Tests
             using var context = CreateContext();
             AuthorsController authorsController = new AuthorsController(context);
 
-            AuthorDtoWrite author = new AuthorDtoWrite();
+            Author author = new Author();
 
             await Assert.ThrowsAnyAsync<Exception>(async () => await authorsController.PostAuthor(author));
         }

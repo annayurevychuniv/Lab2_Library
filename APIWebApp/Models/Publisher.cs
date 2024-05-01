@@ -13,8 +13,6 @@ public partial class Publisher
     }
     public int id { get; set; }
 
-    [Required(ErrorMessage = "Поле не повинно бути порожнім")]
-    [Display(Name = "Назва")]
     public string name { get; set; }
 
     public virtual ICollection<PublishersBook> PublishersAuthors { get; set; }

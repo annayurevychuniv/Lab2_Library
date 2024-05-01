@@ -14,8 +14,6 @@ public partial class Book
 
     public int id { get; set; }
 
-    [Required(ErrorMessage = "Поле не повинно бути порожнім")]
-    [Display(Name = "Назва")]
     public string title { get; set; }
 
     public int authorId { get; set; }
@@ -24,9 +22,9 @@ public partial class Book
 
     public int categoryId { get; set; }
 
-    public string? description { get; set; }
+    public string description { get; set; }
 
-    public int? publicationYear { get; set; }
+    public int publicationYear { get; set; }
 
     public virtual Author Author { get; set; }
 

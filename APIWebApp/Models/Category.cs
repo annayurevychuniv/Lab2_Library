@@ -12,8 +12,6 @@ public partial class Category
     }
     public int id { get; set; }
 
-    [Required(ErrorMessage = "Поле не повинно бути порожнім")]
-    [Display(Name = "Назва")]
     public string name { get; set; }
 
     public string? description { get; set; }

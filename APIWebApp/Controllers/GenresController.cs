@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using APIWebApp.Models;
-using APIWebApp.Models.DTO;
 
 namespace APIWebApp.Controllers
 {
@@ -103,6 +102,18 @@ namespace APIWebApp.Controllers
         private bool GenreExists(int id)
         {
             return _context.Genres.Any(e => e.id == id);
+        }
+
+        [HttpGet("authors/{authorId}/genres")]
+        public async Task<ActionResult<IEnumerable<Genre>>> GetGenresByAuthor(int authorId)
+        {
+            var genres = await _context.Books
+                .Where(book => book.authorId == authorId)
+                .Select(book => book.Genre)
+                .Distinct()
+                .ToListAsync();
+
+            return genres;
         }
     }
 }

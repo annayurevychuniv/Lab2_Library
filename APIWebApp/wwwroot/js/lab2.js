@@ -5,7 +5,7 @@ function getAuthors() {
     fetch(uri)
         .then(response => response.json())
         .then(data => _displayAuthors(data))
-        .catch(error => console.error('Не вдалося отримати автори.', error));
+        .catch(error => console.error('Не вдалося отримати авторів.', error));
 }
 
 function addAuthor() {
@@ -144,7 +144,6 @@ function _displayAuthors(data) {
     const tBody = document.getElementById('authors');
     tBody.innerHTML = '';
 
-
     const button = document.createElement('button');
 
     data.forEach(author => {
@@ -170,12 +169,11 @@ function _displayAuthors(data) {
         let textNodeBirthYear = document.createTextNode(author.birthYear);
         td3.appendChild(textNodeBirthYear);
 
-        let td5 = tr.insertCell(3);
-        td5.appendChild(editButton);
+        let td4 = tr.insertCell(3);
+        td4.appendChild(editButton);
 
-        let td6 = tr.insertCell(4);
-        td6.appendChild(deleteButton);
-
+        let td5 = tr.insertCell(4);
+        td5.appendChild(deleteButton);
     });
 
     authors = data;
