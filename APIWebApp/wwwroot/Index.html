@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset ="UTF-8">
+        <title>Автори - Library</title>
+        <link rel ="stylesheet" href="css/site.css" />
+</head>
+<body>
+    <h1>ІСТТП - 2024 - Лаба2 Бібліотека</h1>
+    <h3>Додати автора</h3>
+    <form action ="javascript:void(0);" method="POST" onsubmit="addAuthor()">
+        <input type="text" id="add-fullName" placeholder="Повне ім'я">
+        <input type="text" id="add-country" placeholder="Країна">
+        <input type="number" id="add-birthYear" placeholder="Рік народження">
+        <input type="submit" value="Додати">
+    </form>
+
+    <div id ="Edit">
+        <h3>Редагувати автора</h3>
+        <form action="javascript:void(0);" onsubmit="updateAuthor()">
+            <input type="hidden" id="edit-id" disabled>
+            <input type="text" id="edit-fullName" disabled>
+            <input type="text" id="edit-country" disabled>
+            <input type="number" id="edit-birthYear" disabled>
+            <input type="submit" value="Зберегти">
+        </form>
+    </div>
+
+    <p id ="counter">
+    </p>
+
+    <table>
+        <tr>
+            <th>Повне ім'я</th>
+            <th>Країна</th>
+            <th>Рік народження</th>
+        </tr>
+        <tbody id ="authors"></tbody>
+    </table>
+
+    <script src ="js/lab2.js" asp-append-version="true">
+    </script>
+        <script type ="text/javascript">
+            getAuthors();
+        </script>
+    </body>
+</html>
